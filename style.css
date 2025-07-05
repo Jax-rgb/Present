@@ -181,24 +181,14 @@ body {
 }
 
 .letter img {
-  width: 200px;         /* Larger, fixed size */
-  height: 200px;        /* Same as width for circle */
-  object-fit: cover;    /* Crop to fit circle */
-  border-radius: 50%;   /* Perfect circle */
+  width: 200px; /* Larger, fixed size */
+  height: 200px; /* Same as width for circle */
+  object-fit: cover; /* Crop to fit circle */
+  border-radius: 50%; /* Perfect circle */
   margin: 20px 0;
   border: 2px solid #c3b1e1;
 }
 
 .divider {
   display: none;
-}
-
-/* Reduce gap between 'Yours forever,' and 'Euan' */
-.letter-content p:nth-last-of-type(2) {
-  margin-bottom: 2px;
-}
-
-.letter-content p:last-of-type {
-  margin-top: 0;
-  margin-bottom: 0;
 }
