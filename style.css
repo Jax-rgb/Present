@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
+  font-family: 'Cedarville Cursive', cursive;  /* ORIGINAL font */
+  overflow: hidden;
+}
+
+.envelope {
+  width: 700px;
+  height: 550px;
+  perspective: 1000px; /* Needed for 3D flip */
+  cursor: pointer;
+}
+
+.envelope-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.envelope.open .envelope-inner {
+  transform: rotateY(180deg);
+}
+
+.envelope-front,
+.envelope-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  background: #f5f0ff;
+  border: 2px solid #c3b1e1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.envelope-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.envelope-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.heart {
+  width: 220px;
+  height: 220px;
+  background: #c3b1e1;
+  position: relative;
+  transform: rotate(-45deg);
+  animation: pulse 1.5s ease infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  width: 220px;
+  height: 220px;
+  background: #c3b1e1;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -110px;
+  left: 0;
+}
+
+.heart::after {
+  left: 110px;
+  top: 0;
+}
+
+.hide .heart {
+  display: none;
+}
+
+@keyframes pulse {
+  0% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.1); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
+
+@keyframes particle-burst {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(200px * var(--x)), calc(200px * var(--y))) scale(0.7) rotate(calc(360deg * var(--r)));
+    opacity: 0;
+  }
+}
+
+.heart-particle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: var(--particle-color, #c3b1e1);
+  transform: rotate(-45deg);
+  z-index: 3;
+  animation: particle-burst 1.5s ease forwards;
+}
+
+.heart-particle::before,
+.heart-particle::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background: var(--particle-color, #c3b1e1);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart-particle::before {
+  top: -25px;
+  left: 0;
+}
+
+.heart-particle::after {
+  left: 25px;
+  top: 0;
+}
+
+.letter {
+  position: absolute;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: linear-gradient(45deg, #fff 25%, #f5f0ff 25%, #f5f0ff 50%, #fff 50%, #fff 75%, #f5f0ff 75%);
+  background-size: 20px 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+}
+
+.envelope.open .letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #333;
+  font-size: 18px; /* Smaller font for more space */
+  line-height: 1.4; /* Tighter lines */
+  height: 100%;
+  border: 3px double #c3b1e1;
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.letter h2 {
+  color: #c3b1e1;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-family: 'Great Vibes', cursive; /* ORIGINAL font */
+}
+
+.letter img {
+  width: 200px; /* Larger, fixed size */
+  height: 200px; /* Same as width for circle */
+  object-fit: cover; /* Crop to fit circle */
+  border-radius: 50%; /* Perfect circle */
+  margin: 20px 0;
+  border: 2px solid #c3b1e1;
+}
+
+.divider {
+  display: none;
+}
