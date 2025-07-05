@@ -5,14 +5,14 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
-  font-family: 'Cedarville Cursive', cursive;
+  font-family: 'Cedarville Cursive', cursive;  /* ORIGINAL font */
   overflow: hidden;
 }
 
 .envelope {
-  width: 750px;   /* Reduced width */
-  height: 575px;  /* Reduced height */
-  perspective: 1000px;
+  width: 700px;
+  height: 550px;
+  perspective: 1000px; /* Needed for 3D flip */
   cursor: pointer;
 }
 
@@ -55,8 +55,8 @@ body {
 }
 
 .heart {
-  width: 230px;   /* Scaled down */
-  height: 230px;
+  width: 220px;
+  height: 220px;
   background: #c3b1e1;
   position: relative;
   transform: rotate(-45deg);
@@ -66,20 +66,20 @@ body {
 .heart::before,
 .heart::after {
   content: '';
-  width: 230px;
-  height: 230px;
+  width: 220px;
+  height: 220px;
   background: #c3b1e1;
   border-radius: 50%;
   position: absolute;
 }
 
 .heart::before {
-  top: -115px;
+  top: -110px;
   left: 0;
 }
 
 .heart::after {
-  left: 115px;
+  left: 110px;
   top: 0;
 }
 
@@ -106,8 +106,8 @@ body {
 
 .heart-particle {
   position: absolute;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   background: var(--particle-color, #c3b1e1);
   transform: rotate(-45deg);
   z-index: 3;
@@ -117,27 +117,27 @@ body {
 .heart-particle::before,
 .heart-particle::after {
   content: '';
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   background: var(--particle-color, #c3b1e1);
   border-radius: 50%;
   position: absolute;
 }
 
 .heart-particle::before {
-  top: -27.5px;
+  top: -25px;
   left: 0;
 }
 
 .heart-particle::after {
-  left: 27.5px;
+  left: 25px;
   top: 0;
 }
 
 .letter {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
   background: linear-gradient(45deg, #fff 25%, #f5f0ff 25%, #f5f0ff 50%, #fff 50%, #fff 75%, #f5f0ff 75%);
   background-size: 20px 20px;
   padding: 20px;
@@ -163,8 +163,8 @@ body {
   align-items: center;
   text-align: center;
   color: #333;
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 18px; /* Smaller font for more space */
+  line-height: 1.4; /* Tighter lines */
   height: 100%;
   border: 3px double #c3b1e1;
   border-radius: 8px;
@@ -175,17 +175,17 @@ body {
 .letter h2 {
   color: #c3b1e1;
   margin-top: 0;
-  margin-bottom: 6px;
-  font-size: 28px;
-  font-family: 'Great Vibes', cursive;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-family: 'Great Vibes', cursive; /* ORIGINAL font */
 }
 
 .letter img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 18px 0;
+  width: 200px;         /* Larger, fixed size */
+  height: 200px;        /* Same as width for circle */
+  object-fit: cover;    /* Crop to fit circle */
+  border-radius: 50%;   /* Perfect circle */
+  margin: 20px 0;
   border: 2px solid #c3b1e1;
 }
 
