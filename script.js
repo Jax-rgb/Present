@@ -1,14 +1,20 @@
 const envelope = document.getElementById('envelope');
 const music = document.getElementById('background-music');
 
-let animating = false;
-
-const startTime = 107; // 1:47 in seconds
-const endTime = 167;   // 2:47 in seconds
+// Play from 1:47 to 2:47
+const startTime = 107; // seconds
+const endTime = 167;   // seconds
 
 function playSegment() {
   music.currentTime = startTime;
-  music.play();
+  music.volume = 0.3; // ✅ reduce volume to 30%
+
+  music.play().then(() => {
+    console.log("Music playback started at reduced volume.");
+  }).catch(e => {
+    console.error("Playback failed:", e);
+    alert("Playback was blocked. Try clicking again.");
+  });
 
   const checkTime = () => {
     if (music.currentTime >= endTime) {
@@ -21,13 +27,13 @@ function playSegment() {
 }
 
 envelope.addEventListener('click', (event) => {
-  if (animating) return; // prevent clicks during animation
-  animating = true;
+  console.log("Envelope clicked.");
 
   if (!envelope.classList.contains('open')) {
-    // Play music segment on open click
+    // Play music segment on open
     playSegment();
 
+    // Particle animation
     const heart = envelope.querySelector('.heart');
     const rect = envelope.getBoundingClientRect();
     const clickX = event.clientX - rect.left;
@@ -51,16 +57,14 @@ envelope.addEventListener('click', (event) => {
 
     envelope.classList.add('open');
 
+    // Show heart again after animation
     setTimeout(() => {
       heart.classList.remove('hide');
-      animating = false;
-    }, 800); // match flip transition
+    }, 800);
 
   } else {
-    // Closing envelope, pause music
+    // Close envelope and pause music
     music.pause();
-
     envelope.classList.remove('open');
-    animating = false;
   }
 });
