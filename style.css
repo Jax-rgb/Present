@@ -10,8 +10,8 @@ body {
 }
 
 .envelope {
-  width: 900px;   /* Increased width */
-  height: 700px;  /* Increased height */
+  width: 850px;   /* Slightly smaller width */
+  height: 650px;  /* Slightly smaller height */
   perspective: 1000px; /* Needed for 3D flip */
   cursor: pointer;
 }
@@ -55,8 +55,8 @@ body {
 }
 
 .heart {
-  width: 280px;   /* Scaled up from 220 */
-  height: 280px;
+  width: 260px;   /* Slightly smaller */
+  height: 260px;
   background: #c3b1e1;
   position: relative;
   transform: rotate(-45deg);
@@ -66,20 +66,20 @@ body {
 .heart::before,
 .heart::after {
   content: '';
-  width: 280px;   /* Match heart size */
-  height: 280px;
+  width: 260px;
+  height: 260px;
   background: #c3b1e1;
   border-radius: 50%;
   position: absolute;
 }
 
 .heart::before {
-  top: -140px;
+  top: -130px;
   left: 0;
 }
 
 .heart::after {
-  left: 140px;
+  left: 130px;
   top: 0;
 }
 
@@ -106,8 +106,8 @@ body {
 
 .heart-particle {
   position: absolute;
-  width: 65px;  /* Increased from 50px */
-  height: 65px;
+  width: 60px;
+  height: 60px;
   background: var(--particle-color, #c3b1e1);
   transform: rotate(-45deg);
   z-index: 3;
@@ -117,30 +117,30 @@ body {
 .heart-particle::before,
 .heart-particle::after {
   content: '';
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   background: var(--particle-color, #c3b1e1);
   border-radius: 50%;
   position: absolute;
 }
 
 .heart-particle::before {
-  top: -32.5px;
+  top: -30px;
   left: 0;
 }
 
 .heart-particle::after {
-  left: 32.5px;
+  left: 30px;
   top: 0;
 }
 
 .letter {
   position: absolute;
-  width: 100%;   /* Full width */
-  height: 100%;  /* Full height */
+  width: 100%;
+  height: 100%;
   background: linear-gradient(45deg, #fff 25%, #f5f0ff 25%, #f5f0ff 50%, #fff 50%, #fff 75%, #f5f0ff 75%);
   background-size: 20px 20px;
-  padding: 30px; /* Slightly bigger padding */
+  padding: 25px;
   box-sizing: border-box;
   border-radius: 8px;
   transform: translateY(50px);
@@ -163,12 +163,12 @@ body {
   align-items: center;
   text-align: center;
   color: #333;
-  font-size: 22px;       /* Increased font size */
+  font-size: 20px;
   line-height: 1.4;
   height: 100%;
   border: 3px double #c3b1e1;
   border-radius: 8px;
-  padding: 30px;         /* Increased padding */
+  padding: 25px;
   background: rgba(255, 255, 255, 0.9);
 }
 
@@ -176,16 +176,16 @@ body {
   color: #c3b1e1;
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 36px;       /* Increased heading size */
+  font-size: 32px;
   font-family: 'Great Vibes', cursive;
 }
 
 .letter img {
-  width: 250px;          /* Larger image */
-  height: 250px;
+  width: 230px;
+  height: 230px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 25px 0;
+  margin: 22px 0;
   border: 2px solid #c3b1e1;
 }
 
