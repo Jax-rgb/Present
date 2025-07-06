@@ -5,14 +5,14 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
-  font-family: 'Cedarville Cursive', cursive;  /* ORIGINAL font */
+  font-family: 'Cedarville Cursive', cursive;
   overflow: hidden;
 }
 
 .envelope {
   width: 700px;
   height: 550px;
-  perspective: 1000px; /* Needed for 3D flip */
+  perspective: 1000px;
   cursor: pointer;
 }
 
@@ -136,8 +136,8 @@ body {
 
 .letter {
   position: absolute;
-  width: calc(100% - 4px);
-  height: calc(100% - 4px);
+  width: 100%;
+  height: 100%;
   background: linear-gradient(45deg, #fff 25%, #f5f0ff 25%, #f5f0ff 50%, #fff 50%, #fff 75%, #f5f0ff 75%);
   background-size: 20px 20px;
   padding: 20px;
@@ -163,8 +163,8 @@ body {
   align-items: center;
   text-align: center;
   color: #333;
-  font-size: 18px; /* Smaller font for more space */
-  line-height: 1.4; /* Tighter lines */
+  font-size: 18px;
+  line-height: 1.4;
   height: 100%;
   border: 3px double #c3b1e1;
   border-radius: 8px;
@@ -177,18 +177,81 @@ body {
   margin-top: 0;
   margin-bottom: 5px;
   font-size: 30px;
-  font-family: 'Great Vibes', cursive; /* ORIGINAL font */
+  font-family: 'Great Vibes', cursive;
 }
 
 .letter img {
-  width: 200px; /* Larger, fixed size */
-  height: 200px; /* Same as width for circle */
-  object-fit: cover; /* Crop to fit circle */
-  border-radius: 50%; /* Perfect circle */
-  margin: 20px 0;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 18px 0;
   border: 2px solid #c3b1e1;
 }
 
 .divider {
   display: none;
+}
+
+.letter-content p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .envelope {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .heart {
+    width: 140px;
+    height: 140px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 140px;
+    height: 140px;
+  }
+
+  .heart::before {
+    top: -70px;
+  }
+
+  .heart::after {
+    left: 70px;
+  }
+
+  .heart-particle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .heart-particle::before,
+  .heart-particle::after {
+    width: 35px;
+    height: 35px;
+  }
+
+  .heart-particle::before {
+    top: -17.5px;
+  }
+
+  .heart-particle::after {
+    left: 17.5px;
+  }
+
+  .letter-content {
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  .letter h2 {
+    font-size: 24px;
+  }
+
+  .letter img {
+    width: 120px;
+    height: 120px;
+  }
 }
